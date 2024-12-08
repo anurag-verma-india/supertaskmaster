@@ -105,18 +105,18 @@ body {
 
 
 /* Fixed double borders in the middle*/
-.list1 {
+.list0 {
 	border-right-width: 0;
 }
 
-.list2 {}
+.list1 {}
 
-.list3 {
+.list2 {
 	border-right-width: 0;
 	border-top-width: 0;
 }
 
-.list4 {
+.list3 {
 
 	border-top-width: 0;
 }
@@ -206,24 +206,24 @@ body {
 	font-weight: bold;
 }
 
-.list1 .taskheading {
+.list0 .taskheading {
 	background-color: var(--lgreen);
 	color: var(--green);
 }
 
-.list2 .taskheading {
+.list1 .taskheading {
 	background-color: var(--lblue);
 	color: var(--blue);
 }
 
 
-.list3 .taskheading {
+.list2 .taskheading {
 	background-color: var(--lyellow);
 	color: var(--yellow);
 }
 
 
-.list4 .taskheading {
+.list3 .taskheading {
 	background-color: var(--lred);
 	color: var(--red);
 }
@@ -246,19 +246,19 @@ body {
 	border-radius: 10px;
 }
 
-.list1 .task {
+.list0 .task {
 	background-color: var(--lgreen);
 }
 
-.list2 .task {
+.list1 .task {
 	background-color: var(--lblue);
 }
 
-.list3 .task {
+.list2 .task {
 	background-color: var(--lyellow);
 }
 
-.list4 .task {
+.list3 .task {
 	background-color: var(--lred);
 }
 
