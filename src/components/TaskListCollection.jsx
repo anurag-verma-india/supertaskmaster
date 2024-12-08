@@ -78,6 +78,7 @@ const TaskListCollection = () => {
                     />
                 );
             }
+            console.log("hello")
             return finalArr;
         }
     };
