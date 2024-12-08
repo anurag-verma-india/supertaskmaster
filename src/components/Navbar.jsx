@@ -10,7 +10,7 @@ const Navbar = () => {
                 src={STLogo}
                 alt="Edit"
             />
-            <h1>Super Taskmaster</h1>
+            <h1 className="title-heading">Super Taskmaster</h1>
             <NavbarGoogleLogin />
         </div>
     );

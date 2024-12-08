@@ -72,7 +72,7 @@ const NavbarGoogleLogin = () => {
                             set(ref(db, "tasks/" + uid), {
                                 // Set from local storage
                                 list0: {
-                                    1: {
+                                    8498293: {
                                         creationTime: Date.now(),
                                         state: false,
                                         title: "sample task 1",
