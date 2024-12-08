@@ -1,6 +1,10 @@
 import { onValue, ref, get, set, child } from "firebase/database"
 import { db } from "./firebase"
 import Cookies from "universal-cookie";
+const cookies = new Cookies(null, {
+    path: "/",
+    maxAge: 1000 * 365 * 24 * 60 * 60,
+});
 
 // Does not work for some reason
 // function getUserFromUID(uid) {
@@ -19,14 +23,10 @@ import Cookies from "universal-cookie";
 // }
 
 // This works
-function writeUserData() {
+function writeUserData(userData) {
     set(ref(db, 'user/' + 'userid'), { username: "samplesam", email: "sam@email.com" })
 }
 
-const cookies = new Cookies(null, {
-    path: "/",
-    maxAge: 1000 * 365 * 24 * 60 * 60,
-});
 // This works but does not return the correct thing
 function updateUserFromUID(uid) {
     const userRef = ref(db, "user/" + uid)
@@ -34,12 +34,12 @@ function updateUserFromUID(uid) {
     onValue(userRef, (snapshot) => {
         const userObj = snapshot.val();
 
-        cookies.set("userEmail", userObj.email)
-        cookies.set("userName", userObj.userName)
-        cookies.set("userList0", userObj.taskLists[0])
-        cookies.set("userList1", userObj.taskLists[1])
-        cookies.set("userList2", userObj.taskLists[2])
-        cookies.set("userList3", userObj.taskLists[3])
+        // cookies.set("userEmail", userObj.email)
+        // cookies.set("userName", userObj.userName)
+        // cookies.set("userList0", userObj.taskLists[0])
+        // cookies.set("userList1", userObj.taskLists[1])
+        // cookies.set("userList2", userObj.taskLists[2])
+        // cookies.set("userList3", userObj.taskLists[3])
 
         console.log("userObj\n", userObj)
         return snapshot.val()

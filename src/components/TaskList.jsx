@@ -1,11 +1,13 @@
 import Cookies from "universal-cookie";
 import EditIcon from "../assets/edit.svg";
 import { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 import { onValue, ref } from "firebase/database";
-import { db } from "../firebase/firebase";
+import { auth, db } from "../firebase/firebase";
 
 export const TaskList = ({ listNumber, children }) => {
+    const [authUser] = useAuthState(auth);
     const [userObj, setUserObj] = useState({
         taskListTitles: ["...", "...", "...", "..."],
     });
@@ -14,6 +16,7 @@ export const TaskList = ({ listNumber, children }) => {
         path: "/",
         maxAge: 1000 * 365 * 24 * 60 * 60,
     });
+    // console.log("authUser: \n", authUser);
     useEffect(() => {
         const uid = cookies.get("uid");
         const userRef = ref(db, "users/" + uid);
@@ -25,16 +28,16 @@ export const TaskList = ({ listNumber, children }) => {
         });
     }, []);
 
-    const handleTitleEditClick = (e) => {
+    const handleTitleEditClick = (listNumber) => {
         alert("You clicked edit title");
         // console.log(userObj.taskListTitles);
-        console.log(e.target);
+        console.log(listNumber);
     };
     return (
         <div key={listNumber} className={`list${listNumber} tasklist`}>
             <div className="taskheading-container">
                 <div className="taskheading">
-                    {userObj.taskListTitles[listNumber]}
+                    {authUser && userObj.taskListTitles[listNumber]}
                 </div>
                 {/* <div className="taskheading">Hello</div> */}
                 {/* <div className="taskheading">{arr[i]}</div> */}
@@ -43,8 +46,8 @@ export const TaskList = ({ listNumber, children }) => {
                         </div> */}
                 <div
                     className="icon-container"
-                    onClick={(e) => {
-                        handleTitleEditClick(e);
+                    onClick={() => {
+                        handleTitleEditClick(listNumber);
                     }}
                 >
                     <img
