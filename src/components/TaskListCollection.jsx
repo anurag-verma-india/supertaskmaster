@@ -7,8 +7,22 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 import { onValue, ref } from "firebase/database";
 import { auth, db } from "../firebase/firebase";
+import Modal from "./AddTaskModal";
+
+// import {
+//     Modal,
+//     ModalOverlay,
+//     ModalContent,
+//     ModalHeader,
+//     ModalFooter,
+//     ModalBody,
+//     ModalCloseButton,
+//     Button,
+//     useDisclosure,
+// } from "@chakra-ui/react";
 
 const TaskListCollection = () => {
+    const [openModal, setOpenModal] = useState(false);
     const [authUser] = useAuthState(auth);
     const [taskObj, setTaskObj] = useState({});
     const cookies = new Cookies(null, {
@@ -37,10 +51,11 @@ const TaskListCollection = () => {
     }, [taskObj]);
 
     const handleAddClick = () => {
-        alert("You clicked +");
+        // alert("You clicked +");
+        setOpenModal(!openModal);
     };
 
-    const assembleTask = (tasksObj) => {
+    const assembleTask = (tasksObj, listNumber) => {
         let finalArr = [];
         if (taskObj !== null && taskObj !== undefined) {
             for (const [taskID, taskDetails] of Object.entries(tasksObj)) {
@@ -56,6 +71,7 @@ const TaskListCollection = () => {
                                 key={taskID}
                                 title={taskDetails.title}
                                 state={taskDetails.state}
+                                listNum={listNumber}
                             />
                         );
                     } catch (error) {
@@ -70,36 +86,38 @@ const TaskListCollection = () => {
 
     return (
         <>
+            {openModal && <Modal closeModalFunction={setOpenModal} />}
             <div className="tasklist-container">
                 {/* {returnTaskLists()} */}
                 <TaskList listNumber="0" key="0">
                     {authUser &&
                         taskObj &&
                         taskObj.list0 &&
-                        assembleTask(taskObj.list0)}
+                        assembleTask(taskObj.list0, 0)}
                 </TaskList>
                 <TaskList listNumber="1" key="1">
                     {authUser &&
                         taskObj &&
                         taskObj.list1 &&
-                        assembleTask(taskObj.list1)}
+                        assembleTask(taskObj.list1, 1)}
                 </TaskList>
                 <TaskList listNumber="2" key="2">
                     {authUser &&
                         taskObj &&
                         taskObj.list2 &&
-                        assembleTask(taskObj.list2)}
+                        assembleTask(taskObj.list2, 2)}
                 </TaskList>
                 <TaskList listNumber="3" key="3">
                     {authUser &&
                         taskObj &&
                         taskObj.list3 &&
-                        assembleTask(taskObj.list3)}
+                        assembleTask(taskObj.list3, 3)}
                 </TaskList>
                 <div className="center-wheel" onClick={handleAddClick}>
                     +
                 </div>
             </div>
+            {/* {BasicModal()} */}
         </>
     );
 };

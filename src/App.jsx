@@ -16,7 +16,9 @@ function App() {
                 <Navbar />
                 <ToastContainer />
                 <TaskListCollection />
-                <dialog><p>Example dialog</p></dialog>
+                <dialog>
+                    <p>Example dialog</p>
+                </dialog>
             </userObjContext.Provider>
         </>
     );
