@@ -73,6 +73,7 @@ const NavbarGoogleLogin = () => {
                                 // Set from local storage
                                 list0: {
                                     8498293: {
+                                        EditedTime: Date.now(),
                                         creationTime: Date.now(),
                                         state: false,
                                         title: "sample task 1",

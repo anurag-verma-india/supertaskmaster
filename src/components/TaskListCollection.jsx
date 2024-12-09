@@ -70,7 +70,7 @@ const TaskListCollection = () => {
                                 id={taskID}
                                 key={taskID}
                                 title={taskDetails.title}
-                                state={taskDetails.state}
+                                state={taskDetails.isChecked}
                                 listNum={listNumber}
                             />
                         );

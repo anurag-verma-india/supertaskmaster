@@ -33,7 +33,7 @@ const Modal = ({ closeModalFunction }) => {
         set(ref(db, `tasks/${uid}/list${currTask.list}/${randomID}`), {
             title: currTask.title,
             state: false,
-            creationTime: Date.now(),
+            EditedTime: Date.now(),
         });
 
         closeModal();

@@ -6,7 +6,13 @@ import Cookies from "universal-cookie";
 import { onValue, ref, set } from "firebase/database";
 import { db } from "../firebase/firebase";
 
-const EditTaskModal = ({ closeModalFunction, taskTitle, taskList, taskID }) => {
+const EditTaskModal = ({
+    closeModalFunction,
+    taskTitle,
+    taskList,
+    taskID,
+    taskState,
+}) => {
     const cookies = new Cookies(null, {
         path: "/",
         maxAge: 1000 * 365 * 24 * 60 * 60,
@@ -19,11 +25,13 @@ const EditTaskModal = ({ closeModalFunction, taskTitle, taskList, taskID }) => {
         title: taskTitle,
         list: taskList,
         taskIDState: taskID,
+        isChecked: taskState,
     });
 
     const handleTaskSave = () => {
         // const randomID = Math.random().toString(36).slice(2);
         const uid = cookies.get("uid");
+        // console.log("saving")
 
         // tasks/uid/list(num)/(taskID)/{task}
 
@@ -36,7 +44,8 @@ const EditTaskModal = ({ closeModalFunction, taskTitle, taskList, taskID }) => {
         set(ref(db, `tasks/${uid}/list${currTask.list}/${taskID}`), {
             title: currTask.title,
             state: false,
-            creationTime: Date.now(),
+            EditedTime: Date.now(),
+            isChecked: currTask.isChecked,
         });
 
         closeModal();
