@@ -1,8 +1,13 @@
-# React + Vite
+# Super Taskmaster
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Super taskmaster is a simple application based the concept of Eisenhower Matrix
 
-Currently, two official plugins are available:
+The deployment can be found on the following two places:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   [Vercel (More reliable)](https://supertaskmaster.vercel.app/)
+-   [Netlify](https://supertaskmaster.netlify.app/)
+-
+
+Here is the quote from 34th US president Dwight D. Eisenhower that inspired the concept of Eisenhower matrix
+
+> I have two kinds of problems, the urgent and the important. The urgent are not important, and the important are never urgent
