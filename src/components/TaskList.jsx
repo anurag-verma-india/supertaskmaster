@@ -38,6 +38,10 @@ export const TaskList = ({ listNumber, children }) => {
             <div className="taskheading-container">
                 <div className="taskheading">
                     {authUser && userObj.taskListTitles[listNumber]}
+                    {!authUser &&
+                        ["Do First", "Do Later", "Delegate", "Eliminate"][
+                            listNumber
+                        ]}
                 </div>
                 {/* <div className="taskheading">Hello</div> */}
                 {/* <div className="taskheading">{arr[i]}</div> */}
