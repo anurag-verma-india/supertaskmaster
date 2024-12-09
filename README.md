@@ -6,7 +6,6 @@ The deployment can be found on the following two places:
 
 -   [Vercel (More reliable)](https://supertaskmaster.vercel.app/)
 -   [Netlify](https://supertaskmaster.netlify.app/)
--
 
 Here is the quote from 34th US president Dwight D. Eisenhower that inspired the concept of Eisenhower matrix
 
