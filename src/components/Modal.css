@@ -110,3 +110,10 @@
 #cancelBtn {
     background-color: #D92B04;
 }
+
+
+@media (max-width: 520px) {
+    .modalContainer {
+        width: 80%;
+    }
+}
