@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Modal.css";
+import "./EditModal.css"
 import Cookies from "universal-cookie";
 
 import { onValue, ref, set } from "firebase/database";
@@ -43,8 +44,8 @@ const EditTaskModal = ({ closeModalFunction, taskTitle, taskList, taskID }) => {
     return (
         <>
             <div className="modalExtBG" onClick={closeModal} />
-            <div className="modalBackgroundEdit">
-                <div className="modalEditContainer">
+            <div className="modalBackground" >
+                <div className="modalContainer">
                     <div className="titleCloseBtn">
                         <button onClick={closeModal}>x</button>
                     </div>

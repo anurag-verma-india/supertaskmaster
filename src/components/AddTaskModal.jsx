@@ -40,7 +40,7 @@ const Modal = ({ closeModalFunction }) => {
     };
     return (
         <>
-            <div className="modalExtBG" onClick={closeModal} />
+            <div className="modalExtBG" />
             <div className="modalBackground">
                 <div className="modalContainer">
                     <div className="titleCloseBtn">
