@@ -7,19 +7,21 @@ import { useState } from "react";
 
 import { userObjContext } from "./context/context";
 
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./firebase/firebase";
+import PleaseLogIn from "./components/PleaseLogIn";
 
 function App() {
     const [userGlobalObj, setUserGlobalObj] = useState({});
+    const [authUser] = useAuthState(auth);
 
     return (
         <>
             <userObjContext.Provider value={[userGlobalObj, setUserGlobalObj]}>
                 <Navbar />
                 <ToastContainer />
-                <TaskListCollection />
-                <dialog>
-                    <p>Example dialog</p>
-                </dialog>
+                {authUser && <TaskListCollection />}
+                {!authUser && <PleaseLogIn />}
             </userObjContext.Provider>
         </>
     );
