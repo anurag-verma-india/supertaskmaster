@@ -89,10 +89,10 @@ const EditTaskModal = ({
                                         });
                                     }}
                                 >
-                                    <option value="0">Group 1</option>
-                                    <option value="1">Group 2</option>
-                                    <option value="2">Group 3</option>
-                                    <option value="3">Group 4</option>
+                                    <option value="0">Do First</option>
+                                    <option value="1">Do Later</option>
+                                    <option value="2">Delegate</option>
+                                    <option value="3">Eliminate</option>
                                 </select>
                             </div>
                         </div>
