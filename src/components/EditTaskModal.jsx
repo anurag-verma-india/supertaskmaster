@@ -25,8 +25,16 @@ const EditTaskModal = ({
         title: taskTitle,
         list: taskList,
         taskIDState: taskID,
-        isChecked: taskState,
+        // isChecked: taskState,
     });
+    console.log(
+        "title: \n",
+        taskTitle,
+        "\ntaskList\n",
+        taskList, currTask.list,
+        "\ntaskId",
+        taskID
+    );
 
     const handleTaskSave = () => {
         // const randomID = Math.random().toString(36).slice(2);
@@ -43,9 +51,9 @@ const EditTaskModal = ({
 
         set(ref(db, `tasks/${uid}/list${currTask.list}/${taskID}`), {
             title: currTask.title,
-            state: false,
             EditedTime: Date.now(),
-            isChecked: currTask.isChecked,
+            // isChecked: currTask.isChecked,
+            isChecked: taskState,
         });
 
         closeModal();
@@ -64,7 +72,7 @@ const EditTaskModal = ({
                         </div>
                         <div className="body">
                             <div className="inputContainer">
-                                <label htmlFor="task" id="taskLabel">
+                                <label htmlFor="taskInput" id="taskLabel">
                                     Task Title
                                 </label>
                                 <input
@@ -82,6 +90,7 @@ const EditTaskModal = ({
                                 <select
                                     name="taskGroup"
                                     id="taskGroup"
+                                    value={currTask.list}
                                     onChange={(e) => {
                                         setCurrTask({
                                             ...currTask,

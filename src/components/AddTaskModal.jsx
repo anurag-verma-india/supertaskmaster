@@ -32,8 +32,8 @@ const Modal = ({ closeModalFunction }) => {
 
         set(ref(db, `tasks/${uid}/list${currTask.list}/${randomID}`), {
             title: currTask.title,
-            state: false,
             EditedTime: Date.now(),
+            isChecked: false,
         });
 
         closeModal();
@@ -52,7 +52,7 @@ const Modal = ({ closeModalFunction }) => {
                         </div>
                         <div className="body">
                             <div className="inputContainer">
-                                <label htmlFor="task" id="taskLabel">
+                                <label htmlFor="taskInput" id="taskLabel">
                                     Task Title
                                 </label>
                                 <input
@@ -70,6 +70,7 @@ const Modal = ({ closeModalFunction }) => {
                                 <select
                                     name="taskGroup"
                                     id="taskGroup"
+                                    value={currTask.list}
                                     onChange={(e) => {
                                         setCurrTask({
                                             ...currTask,

@@ -22,11 +22,11 @@ const Task = ({ id, title, state, listNum }) => {
     });
     const handleDeleteClick = () => {
         // alert("You clicked delete");
-        console.log(id);
+        // console.log(id);
 
         // tasks/uid/list(num)/(taskID)/{task}
         const uid = cookies.get("uid");
-        console.log("listNumber\n", listNum);
+        // console.log("listNumber\n", listNum);
         set(ref(db, `tasks/${uid}/list${listNum}/${id}`), {});
     };
     useEffect(() => {

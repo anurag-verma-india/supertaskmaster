@@ -75,8 +75,8 @@ const NavbarGoogleLogin = () => {
                                     8498293: {
                                         EditedTime: Date.now(),
                                         creationTime: Date.now(),
-                                        state: false,
                                         title: "sample task 1",
+                                        isChecked: false,
                                     },
                                 },
                                 list1: {},
