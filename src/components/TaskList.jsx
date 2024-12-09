@@ -48,7 +48,7 @@ export const TaskList = ({ listNumber, children }) => {
                 {/* <div className="taskheading">
                             {userObj.taskLists[i]}
                         </div> */}
-                <div
+                {/* <div
                     className="icon-container"
                     onClick={() => {
                         handleTitleEditClick(listNumber);
@@ -60,7 +60,7 @@ export const TaskList = ({ listNumber, children }) => {
                         src={EditIcon}
                         alt="Edit"
                     />
-                </div>
+                </div> */}
             </div>
             {/* <div className="task-container">{returnTasks([1, 2, 3, 4])}</div> */}
             <div className="task-container">{children}</div>
