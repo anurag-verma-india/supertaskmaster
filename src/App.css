@@ -322,6 +322,18 @@ body {
 	/* max-height: 10%; */
 }
 
+.login-to-continue {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+
+	text-align: center;
+	padding: 1rem;
+
+}
+
 @media (max-width: 550px) {
 	.taskheading-container {
 		padding: 0;
@@ -333,5 +345,15 @@ body {
 	.task {
 		font-size: 1rem;
 	}
+
+	.google-login {
+		/* margin-left: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center; */
+		padding: 0;
+		/* cursor: pointer; */
+	}
+
 
 }
