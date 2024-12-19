@@ -1,13 +1,13 @@
 # Super Taskmaster
 
-Super taskmaster is a simple application based the concept of Eisenhower Matrix
+Super Taskmaster is a simple to-do list application based on the concept of the Eisenhower Matrix
 
-The deployment can be found on the following two places:
+The deployment can be found in the following two places:
 
 -   [Vercel (More reliable)](https://supertaskmaster.vercel.app/)
 -   [Netlify](https://supertaskmaster.netlify.app/)
 
-Here is the quote from 34th US president Dwight D. Eisenhower that inspired the concept of Eisenhower matrix
+Here is the quote from 34th US President Dwight D. Eisenhower that inspired the concept of the Eisenhower matrix
 
 > I have two kinds of problems, the urgent and the important. The urgent are not important, and the important are never urgent
 
