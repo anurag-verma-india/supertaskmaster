@@ -1,11 +1,28 @@
 # Super Taskmaster
 
-Super Taskmaster is a simple to-do list application based on the concept of the Eisenhower Matrix
+Super Taskmaster is a task management app with real time cloud sync.
+It's based on the concept of the Eisenhower Matrix.
 
 The deployment can be found in the following two places:
 
--   [Vercel (More reliable)](https://supertaskmaster.vercel.app/)
+-   [Vercel](https://supertaskmaster.vercel.app/)
 -   [Netlify](https://supertaskmaster.netlify.app/)
+
+## Technologies used
+
+- [**React JS**](https://react.dev/)
+- [**Firebase**](https://firebase.google.com/) - Realtime Database
+- [Vite](https://vite.dev/)
+- [Modern CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox)
+
+
+## Screenshots
+
+![SuperTaskMaster app sample screenshot](./README-photos/home.png)
+![Add Task Popup screenshot](./README-photos/AddTask.png)
+![Edit Task Popup screenshot](./README-photos/EditTask.png)
+
+#### References
 
 Here is the quote from 34th US President Dwight D. Eisenhower that inspired the concept of the Eisenhower matrix
 
