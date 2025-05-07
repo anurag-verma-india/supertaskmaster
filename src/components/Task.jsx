@@ -3,14 +3,13 @@ import EditIcon from "../assets/edit.svg";
 import CheckedBox from "../assets/checked-checkbox.svg";
 import EmptyCheckbox from "../assets/empty-checkbox.svg";
 
-import { onValue, ref, set } from "firebase/database";
+import { ref, set } from "firebase/database";
 import { db } from "../firebase/firebase";
 import Cookies from "universal-cookie";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import EditTaskModal from "./EditTaskModal";
 
 const Task = ({ id, title, state, listNum }) => {
-    const [isChecked, setIsChecked] = useState(false);
     const [editModalOpen, setEditModalOpen] = useState(false);
     const handleEditClick = () => {
         // alert("You clicked edit");
@@ -29,17 +28,13 @@ const Task = ({ id, title, state, listNum }) => {
         // console.log("listNumber\n", listNum);
         set(ref(db, `tasks/${uid}/list${listNum}/${id}`), {});
     };
-    useEffect(() => {
-        setIsChecked(state);
-    }, []);
 
     const handleCheckChange = () => {
-        setIsChecked(!isChecked);
         const uid = cookies.get("uid");
         // console.log(uid);
         set(ref(db, `tasks/${uid}/list${listNum}/${id}`), {
             EditedTime: Date.now(),
-            isChecked: !isChecked,
+            isChecked: !state,
             title: title,
         });
     };
@@ -51,12 +46,12 @@ const Task = ({ id, title, state, listNum }) => {
                     taskTitle={title}
                     taskList={listNum}
                     taskID={id}
-                    taskState={isChecked}
+                    taskState={state}
                     closeModalFunction={setEditModalOpen}
                 />
             )}
             <div className="task" key={id}>
-                {isChecked && (
+                {state && (
                     <img
                         style={{ height: "1.5rem" }}
                         className="edit-icon-img"
@@ -66,7 +61,7 @@ const Task = ({ id, title, state, listNum }) => {
                         onClick={handleCheckChange}
                     />
                 )}
-                {!isChecked && (
+                {!state && (
                     <img
                         style={{ height: "1.5rem" }}
                         className="edit-icon-img"
@@ -76,18 +71,6 @@ const Task = ({ id, title, state, listNum }) => {
                         onClick={handleCheckChange}
                     />
                 )}
-                {/* <img src={CheckedBox} alt="" />
-                <img src={EmptyCheckbox} alt="" /> */}
-                {/* <div onClick={console.log("clicked")}>
-                    <input
-                        type="checkbox"
-                        name="task-checkbox"
-                        id={id}
-                        value={"example"}
-                        onChange={console.log("changed")}
-                        defaultChecked={false}
-                    />
-                </div> */}
                 <div className="task-title">{title}</div>
                 <div className="icon-container" onClick={handleEditClick}>
                     <img
